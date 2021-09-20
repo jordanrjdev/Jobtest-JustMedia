@@ -1,0 +1,11 @@
+<h1><%= @store.name %></h1>
+<div>
+  <p><%= @store.address %></p>
+  <p><%= @store.number %></p>
+  <p><%= @store.city %></p>
+  <p><%= @store.country %></p>
+</div>
+
+<div>
+  <%= link_to "Eliminar Tienda", @store, method: :delete %>
+</div>
