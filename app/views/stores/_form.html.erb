@@ -1,49 +1,76 @@
 
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-12 col-md-10 col-lg-4 bg-secondary p-3 rounded-3">
-  <%= form_with(model: @store, local: true) do |form| %>
+<div class="col-12 col-md-10 col-lg-6">
+
+<div class="card border border-dark">
+<div class="card-header text-center fw-bold fs-4">
   <% if local_assigns[:edit] %>
-    <h1 class="h3 text-white text-center">Edit Store</h1>
+    Edit Product
   <% else %>
-    <h1 class="h3 text-white text-center">Create Store</h1>
+    Create Product
   <%end%>
-  <div class="form-group mt-4">
-    <%= form.label :name, class:"text-white"  %>
-    <%= form.text_field :name, class:"form-control mb-2" %>
+</div>
+<div class="card-body">
+<%= form_with(model: @store, local: true) do |form| %>
+  <div class="row g-3">
+
+  <div class="col-md-6">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+    <% @store.errors.full_messages_for(:name).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :address, class:"text-white"  %>
-    <%= form.text_field :address, class:"form-control mb-2" %>
+  <div class="col-md-6">
+    <%= form.label :address %>
+    <%= form.text_field :address, class:"form-control" %>
+    <% @store.errors.full_messages_for(:address).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :number, class:"text-white"  %>
-    <%= form.text_field :number, class:"form-control mb-2" %>
+
+  <div class="col-md-6">
+    <%= form.label :number %>
+    <%= form.text_field :number, class:"form-control" %>
+    <% @store.errors.full_messages_for(:number).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :zip_code, class:"text-white"  %>
-    <%= form.text_field :zip_code, class:"form-control mb-2" %>
+  <div class="col-md-6">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code, class:"form-control" %>
+    <% @store.errors.full_messages_for(:zip_code).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :city, class:"text-white"  %>
-    <%= form.text_field :city, class:"form-control mb-2" %>
+  <div class="col-md-6">
+    <%= form.label :city %>
+    <%= form.text_field :city, class:"form-control" %>
+    <% @store.errors.full_messages_for(:city).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :country, class:"text-white"  %>
-    <%= form.text_field :country, class:"form-control mb-2" %>
+  <div class="col-md-6">
+    <%= form.label :country %>
+    <%= form.text_field :country, class:"form-control" %>
+    <% @store.errors.full_messages_for(:country).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
   </div>
 
-  
-  <div class="form-group">
+  <div class="form-group"> 
     <%= form.submit class:"mt-3 btn btn-dark d-block mx-auto"%>
+  </div>
   </div>
 <% end %>
 </div>
 </div>
 </div>
-
+</div>
+</div>

@@ -15,16 +15,27 @@ class ProductsController < ApplicationController
 
   def create 
     @product = Product.create(product_params)
-    redirect_to products_path
-  end
+    if @product.save
+      @product.save_categories
+      redirect_to products_path
+    else
+      @categories = Category.all
+      render :new 
+    end
+  end 
 
   def edit 
     @categories = Category.all
   end 
 
   def update 
-    @product.update(product_params)
-    redirect_to products_path
+    if @product.update(product_params)
+      @product.save_categories
+      redirect_to products_path
+    else
+      @categories = Category.all
+      render :edit
+    end
   end 
 
   def destroy 
@@ -37,7 +48,7 @@ class ProductsController < ApplicationController
   end 
 
   def product_params 
-    params.require(:product).permit(:name, :color, :price, :size, category_elements: [])
+    params.require(:product).permit(:image, :name, :color, :price, :size, category_elements: [])
   end
 
 end

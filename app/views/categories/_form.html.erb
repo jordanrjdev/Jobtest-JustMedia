@@ -1,21 +1,36 @@
+
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-12 col-md-10 col-lg-4 bg-secondary px-4 py-5 rounded-3">
-  <%= form_with(model: @category, local: true) do |form| %>
-    <div class="form-group">
-    <% if local_assigns[:edit] %>
-      <h1 class="h3 text-white text-center">Edit Category</h1>
-    <% else %>
-      <h1 class="h3 text-white text-center">Create Category</h1>
-    <%end%>
-      <%= form.label :name, class:"text-white" %>
-      <%= form.text_field :name, class:"form-control", placeholder:"Shirts..." %>
-    </div>
+<div class="col-12 col-md-10 col-lg-6">
 
-    <div class="form-group"> 
-      <%= form.submit class:"btn btn-dark mt-4 mx-auto d-block" %>
-    </div>
-  <% end %>
+<div class="card border border-dark">
+<div class="card-header text-center fw-bold fs-4">
+  <% if local_assigns[:edit] %>
+    Edit Category
+  <% else %>
+    Create Category
+  <%end%>
+</div>
+<div class="card-body">
+<%= form_with(model: @category, local: true) do |form| %>
+  <div class="row g-3">  
+
+  <div class="col-md-12">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+    <% @category.errors.full_messages_for(:name).each do |message| %>
+      <span class="text-danger fw-bold"><%= message %></span>
+    <% end %>
+  </div>
+
+
+  <div class="form-group"> 
+    <%= form.submit class:"mt-3 btn btn-dark d-block mx-auto"%>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -1,12 +1,18 @@
-<h1><%= @store.name %></h1>
-<div>
-  <p><%= @store.address %></p>
-  <p><%= @store.number %></p>
-  <p><%= @store.zip_code %></p>
-  <p><%= @store.city %></p>
-  <p><%= @store.country %></p>
-</div>
+<div class="container" >
+  <div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center"><%= @store.name %></h1>
+    <div>
+      <p><%= @store.address %></p>
+      <p><%= @store.number %></p>
+      <p><%= @store.zip_code %></p>
+      <p><%= @store.city %></p>
+      <p><%= @store.country %></p>
+    </div>
 
-<div>
-  <%= link_to "Eliminar Tienda", @store, method: :delete %>
+    <div>
+      <%= link_to "Eliminar Tienda", @store, method: :delete %>
+    </div>
+  </div>
+  </div>
 </div>
