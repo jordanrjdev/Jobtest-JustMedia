@@ -4,5 +4,5 @@
       <td><%= product.color %></td>
       <td><%= product.size %></td>
       <td><%= product.price %></td>
-      <td><%= link_to "Ver mas", product %></td>    
+      <td><%= link_to "Editar", product_edit_path(product.id), class:"btn btn-warning" %><%= link_to "Eliminar", product, method: :delete, class:"btn btn-danger ms-2" %></td>    
 </tr>

@@ -3,8 +3,6 @@
       <td><%= store.name %></td>
       <td><%= store.address %></td>
       <td><%= store.number %></td>
-      <td><%= store.zip_code %></td>
-      <td><%= store.city %></td>
-      <td><%= store.country %></td>
-      <td><%= link_to "Ver mas", store %></td>    
+      <td><%= link_to "Details", store, class:"btn btn-primary"%><%= link_to "Edit", store_edit_path(store.id), method: :patch, class:"btn btn-warning ms-2" %><%= link_to "Delete", store, method: :delete, class:"btn btn-danger ms-2" %>
+</td>    
 </tr>

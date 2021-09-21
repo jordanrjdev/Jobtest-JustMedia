@@ -1,36 +1,49 @@
-<%= form_with(model: @store, local: true) do |form| %>
+
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-md-10 col-lg-4 bg-secondary p-3 rounded-3">
+  <%= form_with(model: @store, local: true) do |form| %>
+  <% if local_assigns[:edit] %>
+    <h1 class="h3 text-white text-center">Edit Store</h1>
+  <% else %>
+    <h1 class="h3 text-white text-center">Create Store</h1>
+  <%end%>
   <div class="form-group mt-4">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class:"text-white"  %>
+    <%= form.text_field :name, class:"form-control mb-2" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, class:"text-white"  %>
+    <%= form.text_field :address, class:"form-control mb-2" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.label :number, class:"text-white"  %>
+    <%= form.text_field :number, class:"form-control mb-2" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
+    <%= form.label :zip_code, class:"text-white"  %>
+    <%= form.text_field :zip_code, class:"form-control mb-2" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label :city, class:"text-white"  %>
+    <%= form.text_field :city, class:"form-control mb-2" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
+    <%= form.label :country, class:"text-white"  %>
+    <%= form.text_field :country, class:"form-control mb-2" %>
   </div>
 
   
   <div class="form-group">
-    <%= form.submit %>
+    <%= form.submit class:"mt-3 btn btn-dark d-block mx-auto"%>
   </div>
 <% end %>
+</div>
+</div>
+</div>
+

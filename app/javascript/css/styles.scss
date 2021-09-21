@@ -1,1 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
+
+.fab {
+  font-size: 1.5em;
+  color: #000;
+}
+
+.fab:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.bg-pr {
+  background-color: #e3e3e3;
+}
