@@ -20,6 +20,18 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :category_elements, class:"text-white" %>
+    <div class="row">
+      <% @categories.each do |category| %>
+        <label class="col-6 col-sm-3">
+          <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
+          <%= category.name %>
+        </label>
+      <% end %> 
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= form.label :size, class:"text-white" %>
     <%= form.text_field :size, class:"form-control mb-2" %>
   </div>

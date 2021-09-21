@@ -10,18 +10,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all
   end 
 
   def create 
-    @product = Product.create(name: params[:product][:name], color: params[:product][:color], price: params[:product][:price], size: params[:product][:size])
+    @product = Product.create(product_params)
     redirect_to products_path
   end
 
   def edit 
+    @categories = Category.all
   end 
 
   def update 
-    @product.update(name: params[:product][:name], color: params[:product][:color], price: params[:product][:price],  size: params[:product][:size])
+    @product.update(product_params)
     redirect_to products_path
   end 
 
@@ -33,5 +35,9 @@ class ProductsController < ApplicationController
   def find_product 
     @product = Product.find(params[:id])
   end 
+
+  def product_params 
+    params.require(:product).permit(:name, :color, :price, :size, category_elements: [])
+  end
 
 end
