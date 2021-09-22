@@ -36,10 +36,24 @@
     <% end %>
   </div>
 
+   <div class="col-12">
+    <% if @stores.length > 0 %>
+      Tiendas
+    <% else %>
+      No hay tiendas
+    <% end %>
+      <% @stores.each do |store| %>
+        <div class="form-check">
+          <%= form.check_box :store_elements, {multiple: true, class: "form-check-input", checked: @product.stores.include?(store)}, store.id, nil %>
+          <%= form.label :store_elements, store.name, class:"form-check-label" %>
+        </div>
+      <% end %> 
+    </div>
+
     <div class="col-12">
       <% @categories.each do |category| %>
         <div class="form-check">
-          <%= form.check_box :category_elements, {multiple: true, class: "form-check-input"}, category.id, false %>
+          <%= form.check_box :category_elements, {multiple: true, class: "form-check-input", checked: @product.categories.include?(category)}, category.id, nil %>
           <%= form.label :category_elements, category.name, class:"form-check-label" %>
         </div>
       <% end %> 

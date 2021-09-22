@@ -1,17 +1,18 @@
 <div class="container" >
-  <div class="row">
-  <div class="col-md-12">
-    <h1 class="text-center"><%= @store.name %></h1>
-    <div>
-      <p><%= @store.address %></p>
-      <p><%= @store.number %></p>
-      <p><%= @store.zip_code %></p>
-      <p><%= @store.city %></p>
-      <p><%= @store.country %></p>
+  <div class="row justify-content-center" >
+    <div class="col-md-12 mb-4">
+    <h1 class="text-center">Products of <%= @store.name %></h1>
     </div>
-
-    <div>
-      <%= link_to "Eliminar Tienda", @store, method: :delete %>
+      <% @store.products.each do |product| %>
+      <div class="col-md-4" >
+      <div class="card card-5 rounded 1">
+        <%= image_tag url_for(product.image), class:"card-img-top" %>
+        <div class="card-body">
+        <p class="card-text"><%= product.name %></p>
+        </div>
+      </div>
+      </div> 
+      <%end%>
     </div>
   </div>
   </div>
