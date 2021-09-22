@@ -1,6 +1,11 @@
 <tr>
       <th scope="row"><%= category.id %></th>
       <td><%= category.name %></td>
+      <td>
+            <% category.keywords.each do |keyword| %>
+            <small> <%= keyword.name %> </small>
+            <% end %>
+      </td>
       <td class="d-flex align-items-center"><%= link_to "Edit", edit_category_path(category.id) , class:"btn btn-warning ms-2"%>
       <%= link_to "Delete", category, class:"btn btn-danger ms-2", method: :delete %></td>    
 </tr>

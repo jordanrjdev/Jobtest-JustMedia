@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   end 
 
   def new
+    @keyword = Keyword.new
     @category = Category.new
   end 
 
@@ -21,11 +22,13 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
-  def edit 
+
+  def edit
   end 
 
   def update 
-    @category.update(name: params[:category][:name])
+    @category.update(categories_params)
+    @category.save_keywords
     redirect_to categories_path
   end 
 
@@ -37,5 +40,9 @@ class CategoriesController < ApplicationController
   def find_category
     @category = Category.find(params[:id])
   end 
+
+  def categories_params
+    params.require(:category).permit(:name, :keywords_string)
+  end
 
 end

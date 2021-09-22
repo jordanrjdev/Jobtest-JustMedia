@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_234804) do
+ActiveRecord::Schema.define(version: 2021_09_22_010015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 2021_09_21_234804) do
     t.index ["store_id"], name: "index_has_stores_on_store_id"
   end
 
+  create_table "keywords", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_keywords_on_category_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "color"
@@ -93,4 +101,5 @@ ActiveRecord::Schema.define(version: 2021_09_21_234804) do
   add_foreign_key "has_categories", "products"
   add_foreign_key "has_stores", "products"
   add_foreign_key "has_stores", "stores"
+  add_foreign_key "keywords", "categories"
 end
