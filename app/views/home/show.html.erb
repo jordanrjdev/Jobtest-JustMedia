@@ -1,0 +1,42 @@
+<div class="container">
+<% if @products.length > 0 %>
+<div class="row">
+  <h2>Resultados de la busqueda</h2>
+  <% @products.each do |product| %>
+  <div class="col-md-4" >
+      <div class="card card-5 rounded 1">
+       <% if product.image.attached? %>
+        <%= image_tag url_for(product.image), class:"card-img-top" %>
+      <% else %>
+        <%= image_tag url_for("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fzillo-data-internet-vol-1%2F25%2Fpage_error_404_not_found-512.png&f=1&nofb=1"), class:"card-img-top"%>
+      <% end %>
+        <div class="card-body">
+        <p class="card-text">Name : <%= product.name %></p>
+        <p class="card-text">Price :<%= product.price %></p>
+        </div>
+      </div>
+      </div> 
+  <% end %>
+<% else %>
+    <h2>No encontramos productos con este nombre</h2>
+
+<% if @keywords.length < 1 %>
+  <% if @categories.length < 1  %>
+    <h2>No encontramos categorias</h2>
+  <% else %>
+    <div class="row">
+      <h2>Te recomendamos estas categorias</h2>
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
+  <%end%>
+<%else%>
+  <h2>Te recomendamos estas categorias</h2>
+  <% @keywords.each do |keyword| %>
+  <p> <%= link_to keyword.category.name, category_path(keyword.category_id) %></p>
+  <% end %>
+<%end%>
+</div>
+</div>
+<% end %>
+</div>

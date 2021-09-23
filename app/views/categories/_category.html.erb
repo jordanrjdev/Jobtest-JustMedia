@@ -6,6 +6,8 @@
             <small> <%= keyword.name %> </small>
             <% end %>
       </td>
-      <td class="d-flex align-items-center"><%= link_to "Edit", edit_category_path(category.id) , class:"btn btn-warning ms-2"%>
-      <%= link_to "Delete", category, class:"btn btn-danger ms-2", method: :delete %></td>    
+      <td class="d-flex flex-column flex-lg-row justify-content-between col-lg-6">
+      <%= link_to "Details", category_path(category), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_category_path(category.id) , class:"btn btn-warning"%>
+      <%= link_to "Delete", category, class:"btn btn-danger", method: :delete %></td>    
 </tr>

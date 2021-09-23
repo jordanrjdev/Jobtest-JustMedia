@@ -1,9 +1,22 @@
 <tr>
-      <th scope="row"><%= product.id %></th>
+      <td  style="height:30px;width:30px;">
+       <% if product.image.attached? %>
+        <%= image_tag url_for(product.image), class:"img-fluid" %>
+      <% else %>
+        <%= image_tag url_for("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fzillo-data-internet-vol-1%2F25%2Fpage_error_404_not_found-512.png&f=1&nofb=1"), class:"img-fluid" %>
+      <% end %>
+      </td>
       <td><%= product.name %></td>
+      <td>
+      <% if product.categories.empty? %>
+            <%= "No Category" %>
+      <% else %>
+      <% product.categories.each do |c| %><small class="d-block"><%= c.name %></small><% end %>
+      <% end %>
+      </td>
       <td><%= product.color %></td>
       <td><%= product.size %></td>
       <td><%= product.price %></td>
-      <td><%= link_to "Details", product_path(product.id), class:"btn btn-primary" %>
-      <%= link_to "Editar", edit_product_path(product.id), class:"btn btn-warning" %><%= link_to "Eliminar", product, method: :delete, class:"btn btn-danger ms-2" %></td>    
+      <td class="d-flex flex-column flex-lg-row justify-content-between"><%= link_to "Details", product_path(product.id), class:"btn btn-primary" %>
+      <%= link_to "Editar", edit_product_path(product.id), class:"btn btn-warning" %><%= link_to "Eliminar", product, method: :delete, class:"btn btn-danger" %></td>    
 </tr>

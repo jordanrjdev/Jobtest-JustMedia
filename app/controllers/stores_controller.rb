@@ -34,6 +34,7 @@ class StoresController < ApplicationController
   end 
 
   def destroy
+    @store.products.destroy_all
     @store.destroy
     redirect_to stores_path
   end 

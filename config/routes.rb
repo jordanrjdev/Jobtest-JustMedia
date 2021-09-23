@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :categories  
   
-  post "/search", to: "home#search"
+  post "/search", to: "home#search", as: "search"
 
 end
