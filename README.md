@@ -41,3 +41,7 @@ Ahora podemos ejecutar el comando :
 ```
 bin/rails s
 ```
+
+## Diagrama Entidad Relación 
+
+![Diagrama entidad relacion](https://repository-images.githubusercontent.com/408536681/3dce1906-8b58-4128-b873-578675e63d42)
