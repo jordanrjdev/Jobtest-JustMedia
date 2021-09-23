@@ -18,5 +18,26 @@ Para levantar el entorno lo que necesitamos hacer es instalar las dependencias d
 Esto lo podemos hacer con el comando:
 
 ```
-bundle install
+bin/bundle install && yarn install
+```
+
+Creamos la base de datos con el comando:
+
+```
+## Recuerda configurar tus credenciales en el archivo
+## config/database.yml
+
+bin/rake db:create
+```
+
+Llego el momento de ejecutar las migraciones
+
+```
+bin/rake db:migrate
+```
+
+Ahora podemos ejecutar el comando :
+
+```
+bin/rails s
 ```

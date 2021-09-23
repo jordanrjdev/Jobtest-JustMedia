@@ -1,7 +1,7 @@
 <div class="container">
 <% if @products.length > 0 %>
 <div class="row">
-  <h2>Resultados de la busqueda</h2>
+  <h2>Results</h2>
   <% @products.each do |product| %>
   <div class="col-md-4" >
       <div class="card card-5 rounded 1">
@@ -18,20 +18,20 @@
       </div> 
   <% end %>
 <% else %>
-    <h2>No encontramos productos con este nombre</h2>
+    <h2>We do not find products with this name </h2>
 
 <% if @keywords.length < 1 %>
   <% if @categories.length < 1  %>
     <h2>No encontramos categorias</h2>
   <% else %>
     <div class="row">
-      <h2>Te recomendamos estas categorias</h2>
+      <h2>We recommend these categories</h2>
       <% @categories.each do |category| %>
         <%= link_to category.name, category_path(category) %>
       <% end %>
   <%end%>
 <%else%>
-  <h2>Te recomendamos estas categorias</h2>
+  <h2>We recommend these categories</h2>
   <% @keywords.each do |keyword| %>
   <p> <%= link_to keyword.category.name, category_path(keyword.category_id) %></p>
   <% end %>
