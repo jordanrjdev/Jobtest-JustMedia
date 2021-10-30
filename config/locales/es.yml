@@ -8,3 +8,10 @@ es:
     price: Precio
     size: Tamaño
     store_elements: Tiendas
+  common:
+    back: Atrás
+  activerecord:
+    models:
+      product:
+        one: Producto
+        other: Productos
