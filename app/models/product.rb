@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  color      :string
+#  price      :float
+#  size       :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Product < ApplicationRecord
   validates :name, :price, :color, :size, presence: true
   has_many :has_categories
