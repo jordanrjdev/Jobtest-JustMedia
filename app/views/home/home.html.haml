@@ -1,0 +1,13 @@
+= simple_form_for(@product) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence
+
+  .form-inputs
+    = f.input :name, label: t('product.name')
+    = f.input :price, label: t('product.price')
+    = f.input :color, label: t('product.color')
+    = f.input :store_elements, as: :check_boxes, collection: Store.all, label: t('product.store_elements')
+    = f.input :category_elements, label: t('product.category_elements')
+    = f.input :size, label: t('product.size') 
+  .form-actions
+    = f.submit "Create Product"

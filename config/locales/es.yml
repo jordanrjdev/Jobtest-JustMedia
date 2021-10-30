@@ -1,0 +1,10 @@
+---
+es:
+  hello: Hello world
+  product:
+    category_elements: Categorias
+    color: Color
+    name: Nombre
+    price: Precio
+    size: Tamaño
+    store_elements: Tiendas
