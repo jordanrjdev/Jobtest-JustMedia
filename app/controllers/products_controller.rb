@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
   def create 
     @product = Product.create(product_params)
+    @product.owner = current_user
     if @product.save
       @product.save_categories
       @product.save_stores

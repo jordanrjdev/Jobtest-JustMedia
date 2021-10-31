@@ -12,6 +12,7 @@
 #
 class Product < ApplicationRecord
   validates :name, :price, :color, :size, presence: true
+  belongs_to :owner, class_name: 'User'
   has_many :has_categories
   has_many :has_stores
   has_many :stores, through: :has_stores
