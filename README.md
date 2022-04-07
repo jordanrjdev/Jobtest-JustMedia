@@ -1,4 +1,4 @@
-# JobTest
+# MiniStore Ror
 
 <img src="https://media.giphy.com/media/Wj7lNjMNDxSmc/source.gif" width="75" >
 
